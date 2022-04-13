@@ -1,0 +1,22 @@
+@import "~ag-grid-community/src/styles/ag-grid.scss";
+@import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin";
+
+.ag-theme-alpine {
+  @include ag-theme-alpine((
+    // use theme parameters where possible
+    alpine-active-color: #2196f3,
+    // BORDERS
+    // Draw borders around most UI elements
+    borders: false,
+    // Horizontal padding for grid and header cells (vertical padding is not set explicitly, but inferred from row-height / header-height
+    cell-horizontal-padding: ag-derived(grid-size, $times: 1),
+    // Height of grid rows
+    row-height: ag-derived(grid-size, $times: 6, $plus: 1),
+    // Fonts
+    font-size: 12px,
+  ));
+}
+
+.ag-header-row {
+  border-bottom: thin solid rgba(0, 0, 0, 0.05);
+}

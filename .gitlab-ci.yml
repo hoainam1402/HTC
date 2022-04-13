@@ -1,0 +1,28 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: node:16
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - yarn install
+    - yarn generate
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 10 minutes
+  only:
+    - develop
+
+deploy:
+  stage: deploy
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  script:
+    - aws s3 sync ./dist/ s3://$S3_BUCKET_NAME --delete
+    - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+  only:
+    - develop

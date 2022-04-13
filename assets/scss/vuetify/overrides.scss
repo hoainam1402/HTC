@@ -1,0 +1,116 @@
+/**
+ * Vuetify Styles Overrides
+ */
+
+.v-application {
+  // Flex min-width: 0
+  .d-flex {
+    @apply tw-min-w-0;
+  }
+
+  // Text Overrides
+  p {
+    @apply tw-mb-10;
+  }
+
+  .text-number {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji !important;
+  }
+}
+
+// List Component
+.v-list-item__action {
+  &:first-child {
+    margin-right: 14px !important;
+  }
+}
+
+.v-list-item__icon {
+  @apply tw-justify-center tw-m-auto;
+
+  &:first-child {
+    margin-right: 14px !important;
+  }
+}
+
+.v-application--is-rtl {
+  .v-list-item__action {
+    &:first-child {
+      margin-right: 0 !important;
+      margin-left: 14px !important;
+    }
+  }
+
+  .v-list-item__icon {
+    &:first-child {
+      margin-right: 0 !important;
+      margin-left: 14px !important;
+    }
+  }
+}
+
+.v-list-group__header__append-icon {
+  .v-icon {
+    @apply tw-text-base;
+  }
+}
+
+.v-list-group__header {
+  .v-list-item__icon.v-list-group__header__append-icon {
+    min-width: 0 !important;
+  }
+}
+
+.v-list-group--sub-group {
+  .v-list-group__header {
+    padding-left: $spacer !important;
+  }
+}
+
+.v-list-group__items {
+  margin-bottom: $spacer;
+}
+
+// Navigation Drawer
+.v-navigation-drawer__content {
+  @apply tw-flex-auto tw-overflow-y-auto tw-min-h-0 tw-px-0 tw-py-2;
+
+  background: linear-gradient(white 30%, rgba(255, 255, 255, 0)),
+    linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%,
+    radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0)),
+    radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0)) 0 100%;
+  background-attachment: local, local, scroll, scroll;
+  background-size: 100% 40px, 100% 40px, 100% 15px, 100% 15px;
+  background-repeat: no-repeat;
+}
+
+.theme--dark .v-navigation-drawer__content {
+  background: none;
+}
+
+// Tables
+.v-data-table {
+  table {
+    @apply tw-p-2 tw-pb-4;
+
+    th {
+      @apply tw-uppercase tw-whitespace-nowrap;
+    }
+  }
+}
+
+// Tabs
+.v-tabs-items {
+  background-color: transparent !important;
+}
+
+// Buttons
+.theme--dark.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+  background-color: #273743;
+}
+
+// Rows
+.row {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
